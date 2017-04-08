@@ -6,16 +6,25 @@ program tower2;
 uses
   System.SysUtils;
 
-function tower(count: integer): integer;
+function tower(count, A, B: integer): integer;
+var
+  i: integer;
 begin
-  case count of
-    0:
-      result := 0;
-    1:
-      result := 1;
-  else
-    result := 2 * tower(count - 1) + 1;
+  if count <= 0 then
+  begin
+    result := 0;
+    Exit;
   end;
+  i := 1;
+  while i <= 3 do
+  begin
+    if (i <> A) and (i <> B) then
+      break;
+    inc(i);
+  end;
+  result := tower(count - 1, A, i) + 1;
+  Write(A.ToString + '=>' + B.ToString + ' ');
+  inc(result, tower(count - 1, i, B));
 end;
 
 var
@@ -26,7 +35,9 @@ begin
     { TODO -oUser -cConsole メイン : ここにコードを記述してください }
     repeat
       Readln(s);
-      Writeln(tower(s.ToInteger).ToString);
+      s:=tower(s.ToInteger, 1, 3).ToString;
+      Writeln;
+      Write(s);
     until false;
   except
     on E: Exception do
