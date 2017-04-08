@@ -9,7 +9,6 @@ uses
 var
   a1, a2, a3: integer;
   s: string;
-  c: Char;
   i: integer;
 
 begin
@@ -17,31 +16,20 @@ begin
     { TODO -oUser -cConsole メイン : ここにコードを記述してください }
     repeat
       Readln(s);
-      a1 := 1;
+      a1 := 0;
       a2 := 1;
-      if Length(s) > 0 then
-      begin
-        c := s[1];
-        s := c;
-        case c of
-          '1':
-            Writeln(a1.ToString);
-          '2':
-            Writeln(a2.ToString);
-          '3' .. '9':
-            begin
-              for i := 3 to s.ToInteger do
-              begin
-                a3 := a1 + a2;
-                a1 := a2;
-                a2 := a3;
-              end;
-              Writeln(a3.ToString);
-            end;
-        end;
-      end
+      case i of
+        1, 2:
+          Writeln(i);
       else
-        break;
+        for i := 3 to s.ToInteger do
+        begin
+          a3 := a1 + a2;
+          a1 := a2;
+          a2 := a3;
+        end;
+        Writeln(a3.ToString);
+      end;
     until false;
   except
     on E: Exception do
