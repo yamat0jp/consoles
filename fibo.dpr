@@ -18,18 +18,13 @@ begin
       Readln(s);
       a1 := 0;
       a2 := 1;
-      case i of
-        1, 2:
-          Writeln(i);
-      else
-        for i := 3 to s.ToInteger do
-        begin
-          a3 := a1 + a2;
-          a1 := a2;
-          a2 := a3;
-        end;
-        Writeln(a3.ToString);
+      for i := 1 to s.ToInteger do
+      begin
+        a3 := a1 + a2;
+        a1 := a2;
+        a2 := a3;
       end;
+      Writeln(a2.ToString);
     until false;
   except
     on E: Exception do
