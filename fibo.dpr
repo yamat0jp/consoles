@@ -21,10 +21,10 @@ begin
       for i := 1 to s.ToInteger do
       begin
         a3 := a1 + a2;
-        a1 := a2;
-        a2 := a3;
+        a2 := a1;
+        a1 := a3;
       end;
-      Writeln(a2.ToString);
+      Writeln(a1.ToString);
     until false;
   except
     on E: Exception do
