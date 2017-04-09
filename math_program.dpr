@@ -18,13 +18,15 @@ begin
     begin
       j := 2;
       while j <= 1000 do
-      begin
-        if (i mod j = 0)and(i <> j) then
+        if (i mod j = 0) and (i <> j) then
+          break
+        else if i > j then
+          inc(j)
+        else
+        begin
+          s.Add(i.ToString);
           break;
-        inc(j);
-      end;
-      if j = 1001 then
-        s.Add(i.ToString);
+        end;
     end;
     Write(s.DelimitedText);
     s.Free;
