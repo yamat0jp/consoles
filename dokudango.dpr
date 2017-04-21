@@ -8,8 +8,10 @@ uses
 
 var
   s: string;
-  count, i, j: integer;
+  count, i: integer;
   x: Boolean;
+
+label back;
 
 begin
   try
@@ -25,13 +27,14 @@ begin
       dec(count, i);
       if count < 1 then
         break;
+    back:
       x := true;
       Writeln(count.ToString);
       Writeln('[1-4]');
       Readln(s);
       i := s.ToInteger;
       if i > 4 then
-        continue;
+        goto back;
       dec(count, s.ToInteger);
     until count <= 0;
     if x = true then
