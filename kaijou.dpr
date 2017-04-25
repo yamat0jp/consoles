@@ -17,7 +17,7 @@ begin
     Readln(s);
     j := 1;
     for i := 2 to s.ToInteger do
-      j := j + i;
+      j := j * i;
     Writeln(j.ToString);
     Readln;
   except

@@ -16,6 +16,7 @@ label first, back;
 begin
   try
     { TODO -oUser -cConsole メイン : ここにコードを記述してください }
+    Randomize;
     count := 51;
     goto first;
     repeat
@@ -26,10 +27,7 @@ begin
         inc(i)
       until ((count - 1 - i) mod 5 = 0) or (i = 5);
       if i = 5 then
-      begin
-        Randomize;
         i := Random(4) + 1;
-      end;
       Writeln(i.ToString + 'コたべました');
       dec(count, i);
       if count < 1 then
